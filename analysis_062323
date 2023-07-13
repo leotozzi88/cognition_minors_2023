@@ -40,7 +40,7 @@ library(reshape2)
 # Melt the data into long format
 data_noout$Diagnosis=data_noout$Diagnosis_arm
 data_noout[data_noout$Clinical==0, 'Diagnosis']='Controls'
-data_noout$Diagnosis=factor(data_noout$Diagnosis, levels = c('Controls', 'ADHD', 'Anorexia','Conversion','First Onset Psychosis'))
+data_noout$Diagnosis=factor(data_noout$Diagnosis, levels = c('Controls', 'ADHD', 'Anorexia','FND','First Onset Psychosis'))
 mydata_long <- melt(data_noout[, c('Session','Diagnosis', 'Diagnosis_arm', cog_feats, 'NEduS', 'sessage', 'Gender', 'Group2', 'Site')], id.vars = c("Session", 'Diagnosis', 'Diagnosis_arm', 'NEduS', 'sessage', 'Gender', 'Group2', 'Site'), variable.name = "wn", value.name = "Value")
 
 # Run model
